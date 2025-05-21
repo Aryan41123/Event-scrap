@@ -26,7 +26,8 @@ const EventCard = ({ title, date, link, index, activeIndex, setActiveIndex }) =>
         email,
         link,
       });
-      window.open(link, "_blank");
+     window.location.href = link;
+
       setActiveIndex(null)
     } catch (err) {
       setError("Subscription failed");
