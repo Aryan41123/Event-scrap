@@ -23,8 +23,7 @@ const EventCard = ({ title, date, url, index, activeIndex, setActiveIndex }) => 
     setSubmitting(true);
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/api/subscribe`, {
-        email,
-        link,
+        email
       });
       window.open(url, "_blank");
       setActiveIndex(null)
