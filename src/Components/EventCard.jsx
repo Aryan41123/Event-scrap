@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const EventCard = ({ title, date, link, index, activeIndex, setActiveIndex }) => {
+const EventCard = ({ title, date, url, index, activeIndex, setActiveIndex }) => {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -26,7 +26,7 @@ const EventCard = ({ title, date, link, index, activeIndex, setActiveIndex }) =>
         email,
         link,
       });
-      window.open(link, "_blank");
+      window.open(url, "_blank");
       setActiveIndex(null)
     } catch (err) {
       setError("Subscription failed");
