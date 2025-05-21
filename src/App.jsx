@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     const fetchEvents = async () => {
       const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}api/events`);
+      console.log(import.meta.env.VITE_BACKEND_URL);
       setEvents(res.data);
     };
     fetchEvents();
