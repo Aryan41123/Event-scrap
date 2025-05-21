@@ -22,12 +22,11 @@ const EventCard = ({ title, date, link, index, activeIndex, setActiveIndex }) =>
 
     setSubmitting(true);
     try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}api/subscribe`, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/subscribe`, {
         email,
         link,
       });
-     window.location.href = link;
-
+      window.open(link, "_blank");
       setActiveIndex(null)
     } catch (err) {
       setError("Subscription failed");
@@ -65,7 +64,7 @@ const EventCard = ({ title, date, link, index, activeIndex, setActiveIndex }) =>
           />
           <button type="submit" style={styles.button} disabled={submitting}>
             {submitting ? "Submitting..." : "Continue"
-            }
+          }
           </button>
           {error && <p style={styles.error}>{error}</p>}
         </form>
